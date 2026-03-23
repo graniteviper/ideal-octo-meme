@@ -1,0 +1,37 @@
+name: builder-and-format-checker
+
+on:
+    push: 
+        branches: ["main"]
+    pull_request:
+        branches: ["main"]
+
+jobs: 
+    build:
+        name: builder
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Install Rust Stable version
+              uses: dtolnay/rust-toolchain@stable
+            
+            - name: build the project
+              run: cargo build --verbose
+    
+    fmt:
+        name: Format Checker
+        runs-on: ubuntu-latest
+
+        steps: 
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Install Rust Stable version
+              uses: dtolnay/rust-toolchain@stable
+              with:
+                components: rustfmt
+            
+            - name: format checking
+              run: cargo fmt --check
