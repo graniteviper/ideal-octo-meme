@@ -1,13 +1,13 @@
 name: builder-and-format-checker
 
-on:
+on:  # When to run the ci-cd pipeline
     push: 
         branches: ["main"]
     pull_request:
         branches: ["main"]
 
 jobs: 
-    build:
+    build:  # Job 1: build the code
         name: builder
         runs-on: ubuntu-latest
         steps:
@@ -20,7 +20,7 @@ jobs:
             - name: build the project
               run: cargo build --verbose
     
-    fmt:
+    fmt:  # Job 2: Check the formatting of the code 
         name: Format Checker
         runs-on: ubuntu-latest
 
