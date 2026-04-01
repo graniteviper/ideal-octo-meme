@@ -18,7 +18,7 @@ jobs:
               uses: dtolnay/rust-toolchain@stable
             
             - name: build the project
-              run: cargo build --verbose
+              run: just build
     
     fmt:  # Job 2: Check the formatting of the code 
         name: Format Checker
@@ -34,4 +34,4 @@ jobs:
                 components: rustfmt
             
             - name: format checking
-              run: cargo fmt --check
+              run: just fmt-check
