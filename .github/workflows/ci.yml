@@ -16,6 +16,9 @@ jobs:
 
             - name: Install Rust Stable version
               uses: dtolnay/rust-toolchain@stable
+
+            - name: Adding just
+              run: apt install just
             
             - name: build the project
               run: just build
@@ -33,5 +36,8 @@ jobs:
               with:
                 components: rustfmt
             
+            - name: Adding just
+              run: apt install just
+
             - name: format checking
               run: just fmt-check
