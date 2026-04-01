@@ -18,7 +18,7 @@ jobs:
               uses: dtolnay/rust-toolchain@stable
 
             - name: Adding just
-              run: apt install just
+              run: sudo apt install just
             
             - name: build the project
               run: just build
@@ -37,7 +37,7 @@ jobs:
                 components: rustfmt
             
             - name: Adding just
-              run: apt install just
+              run: sudo apt install just
 
             - name: format checking
               run: just fmt-check
