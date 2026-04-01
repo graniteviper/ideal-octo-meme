@@ -16,9 +16,12 @@ jobs:
 
             - name: Install Rust Stable version
               uses: dtolnay/rust-toolchain@stable
+
+            - name: Adding just
+              run: sudo apt install just
             
             - name: build the project
-              run: cargo build --verbose
+              run: just build
     
     fmt:  # Job 2: Check the formatting of the code 
         name: Format Checker
@@ -33,5 +36,8 @@ jobs:
               with:
                 components: rustfmt
             
+            - name: Adding just
+              run: sudo apt install just
+
             - name: format checking
-              run: cargo fmt --check
+              run: just fmt-check
